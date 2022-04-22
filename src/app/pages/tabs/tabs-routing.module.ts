@@ -21,7 +21,13 @@ const routes: Routes = [
           }
         ]
       },
-      
+      {
+        path: ':id',
+        loadChildren: () => import('../planets/planets-routing.module').then(m => m.PlanetsPageRoutingModule )
+      }
+    ]
+  },
+
       {
         path: 'people',
         children: [
