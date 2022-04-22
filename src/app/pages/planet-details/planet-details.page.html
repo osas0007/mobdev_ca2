@@ -1,15 +1,15 @@
 	
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start" defaultHref="/tabs/(films:films)">
+    <ion-buttons slot="start" defaultHref="/tabs/(Planet:Planet)">
       <ion-back-button></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ film?.title }}</ion-title>
+    <ion-title>{{ Planet?.title }}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="unfavoriteFilm()" *ngIf="isFavorite">
+      <ion-button (click)="unfavoritePlanet()" *ngIf="isFavorite">
         <ion-icon name="star" slot="icon-only" color="secondary"></ion-icon>
       </ion-button>
-      <ion-button (click)="favoriteFilm()" *ngIf="!isFavorite">
+      <ion-button (click)="favoritePlanet()" *ngIf="!isFavorite">
         <ion-icon name="star-outline" slot="icon-only" color="secondary"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -18,7 +18,7 @@
  
 <ion-content padding="">
  
-  <ion-card *ngIf="film" class="movie-card">
+  <ion-card *ngIf="planet" class="movie-card">
     <ion-card-header>Planets {{ planet.name}}:  {{ planet.rotation_period }}: {{ planet.orbital_period}}: {{ planet.diameter}}: {{ planet.climate}}: {{ planet.gravity}}: {{ planet.terrain}}: {{ planet.surface_water}}: {{ planet.population}}: {{ planet.residents}}</ion-card-header>
     
     
