@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-people-details',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./people-details.page.scss'],
 })
 export class PeopleDetailsPage implements OnInit {
-
-  constructor() { }
-
+	
+  film: any;
+  people: Object;
+ 
+  constructor(private activatedRoute: ActivatedRoute, private http: HttpClient) { }
+ 
   ngOnInit() {
+    let id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.http.get(`https://swapi.dev/api/people/${id}`).subscribe(res => {
+      this.people = res;
+    });
   }
 
 }
